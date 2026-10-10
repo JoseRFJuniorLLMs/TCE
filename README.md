@@ -211,6 +211,7 @@ EXTERNAL_TRUST                   UNVERIFIED
 - [SPEC-0026](specs/SPEC-0026-two-phase-end-to-end-qualification.md) — qualificação ponta a ponta em duas fases
 - [SPEC-0027](specs/SPEC-0027-tce-public-environment-profile.md) — perfil público aproximado dos Tribunais de Contas (TCE)
 - [SPEC-0028](specs/SPEC-0028-document-injection-firewall-editais.md) — Document & LLM Injection Firewall para Editais e Prestações de Contas
+- [SPEC-0029](specs/SPEC-0029-tce-ce-systems-criticality-and-log-ingestion.md) — Catálogo Completo de Sistemas (Matriz de Criticidade TCE-CE — 69 soluções: 19 Críticas, 20 Médias, 24 Baixas e 6 Exclusões/Unificações), Recalibração de Criticidade Cibernética e Contratos de Log no HeraclitusDB
 
 ## Regra de ouro
 

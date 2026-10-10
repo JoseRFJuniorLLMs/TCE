@@ -131,3 +131,10 @@ Sem acoplar a POC a um único Estado ou fabricante específico, a arquitetura n�
 * fabricante de firewall, WAF, SIEM ou EDR;
 * SGBD transacional específico (funciona de forma *engine-neutral* ao lado de Oracle, PostgreSQL ou SQL Server);
 * topologia interna de rede, IPs ou nomes reais de servidores de qualquer TCE.
+
+---
+
+## 8. Matriz Completa de Soluções e Níveis de Criticidade (Referência TCE-CE — 69 Soluções)
+
+O mapeamento exaustivo das **69 soluções de TI** do TCE Ceará — distribuídas entre **Kubernetes (`Sim`)**, **Sydle Low-Code (`Sydle`)**, **Ambientes Virtualizados (`Nao`)**, **Azure**, **AppSheet** e **SAS Viya**, com foco nas **19 Soluções Críticas** (`Plenário Virtual`, `e-TCE`, `Portal de Serviços`, `Certidões`, `e-Fiscal`, `Certidão do SIM`, `e-Transparência`, `Folha de Pagamento`, `SIM`, `Contexto`, `Diário - DOE`, `Assinatura - API`, `Ouvidoria`, `Portal da Transparência`, `Portal do Cidadão`, `SRP`, `Peticionamento`, `SRH` e `Site Institucional TCE`) e na recalibração de segurança para `SCA`, `SISAUT`, `E-Listas`, `PIE` e `Ana JúlIA` — está documentado em **[SPEC-0029](../specs/SPEC-0029-tce-ce-systems-criticality-and-log-ingestion.md)**.
+

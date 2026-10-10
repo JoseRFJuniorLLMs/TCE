@@ -33,3 +33,5 @@
 | Mesma campanha atravessa Fase 1 e Fase 2 | SPEC-0026 | `campaign_id` / `incident_id` contínuos |
 | Primeiro sinal observável liga-se ao bloqueio final | SPEC-0023 / SPEC-0026 | grafo causal completo |
 | Limitações institucionais permanecem explícitas (`NOT_CONFIGURED` / `UNVERIFIED`) | SPEC-0001 / SPEC-0027 | scorecard e seção `trust`/`limitations` do bundle |
+| Catálogo completo das 69 soluções (19 Críticas P0 + recalibração cibernética K8s/Sydle/VM/IA) mapeado para logs e gates HeraclitusDB | SPEC-0029 | Matriz `CAT-01..CAT-10` + Contratos `TceSystemTelemetryEvent` |
+
