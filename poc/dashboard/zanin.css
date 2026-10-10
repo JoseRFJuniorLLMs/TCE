@@ -1,0 +1,1001 @@
+/* Defesa Zanin — Laboratório de Prompt Injection em Documentos Processuais */
+
+.zanin-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 10px 0 50px 0;
+  color: var(--gov-text, #1e293b);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 1. Header & Disclaimer Sintético Obrigatório */
+.zanin-disclaimer-banner {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-left: 6px solid #d97706;
+  border-radius: 8px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.zanin-disclaimer-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.zanin-disclaimer-content strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.zanin-disclaimer-content p {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: #78350f;
+  line-height: 1.45;
+}
+
+.zanin-hero {
+  background: linear-gradient(135deg, #0b1f3d 0%, #15325b 60%, #1e427b 100%);
+  border-radius: 12px;
+  padding: 24px 28px;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(11, 31, 61, 0.15);
+  border-left: 6px solid #3b82f6;
+  position: relative;
+}
+
+.zanin-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #93c5fd;
+  margin-bottom: 8px;
+}
+
+.zanin-hero-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+
+.zanin-hero-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 1050px;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+/* 2. Seção Comparativa: Fatos Públicos vs Cenário Sintético */
+.zanin-facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .zanin-facts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zanin-facts-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.zanin-facts-card.public {
+  border-left: 4px solid #2563eb;
+}
+
+.zanin-facts-card.synthetic {
+  border-left: 4px solid #8b5cf6;
+}
+
+.zanin-facts-title {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zanin-facts-title.blue { color: #1d4ed8; }
+.zanin-facts-title.purple { color: #6d28d9; }
+
+.zanin-facts-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.zanin-facts-list li {
+  margin-bottom: 6px;
+}
+
+/* 3. Seletor de Cenários de Teste */
+.zanin-scenarios-bar {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zanin-scenarios-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zanin-scenarios-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.zanin-scenario-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.zanin-scen-btn {
+  flex: 1;
+  min-width: 240px;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.zanin-scen-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.zanin-scen-btn.active {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+.zanin-scen-btn-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.zanin-scen-btn.active .zanin-scen-btn-title {
+  color: #1d4ed8;
+}
+
+.zanin-scen-btn-sub {
+  display: block;
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 3px;
+}
+
+/* 3. Painel de Recepção de Incidentes Registrados (HeraclitusDB Ledger) */
+.zanin-incidents-hub {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.zanin-incidents-hub-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.zanin-hub-tag {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.zanin-hub-title {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.zanin-hub-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+  max-width: 850px;
+}
+
+.zanin-hub-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zanin-incidents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.zanin-incident-card {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.zanin-incident-card:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.zanin-incident-card.active {
+  background: #eff6ff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.zanin-inc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zanin-inc-id {
+  font-size: 11px;
+  font-weight: 800;
+  color: #1e3a8a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.zanin-inc-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.zanin-inc-badge.deny {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+.zanin-inc-badge.pass {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #4ade80;
+}
+
+.zanin-inc-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.zanin-incident-card.active .zanin-inc-title {
+  color: #1d4ed8;
+}
+
+.zanin-inc-desc {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.zanin-inc-meta {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.zanin-inc-meta strong {
+  color: #334155;
+}
+
+.zanin-incident-live-banner {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-left: 5px solid #2563eb;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #1e293b;
+}
+
+.zanin-live-pill {
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* 4. Laboratório Forense: Visualizador Multi-Modo */
+.zanin-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.zanin-card-head {
+  padding: 14px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zanin-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+/* Toggle dos 4 Modos */
+.zanin-mode-tabs {
+  display: flex;
+  background: #e2e8f0;
+  padding: 3px;
+  border-radius: 6px;
+  gap: 3px;
+}
+
+.zanin-mode-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.zanin-mode-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.zanin-mode-btn.forensic.active {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.zanin-mode-btn.sanitized.active {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+/* Viewport do Documento */
+.zanin-doc-viewport {
+  padding: 24px;
+  background: #fdfdfd;
+  min-height: 340px;
+  max-height: 480px;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1e293b;
+  overflow-y: auto;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: pre-wrap;
+}
+
+/* Modos visuais do documento */
+.zanin-doc-viewport.mode-human {
+  background: #fdfdfd;
+  color: #1e293b;
+}
+
+.zanin-doc-viewport.mode-structural {
+  background: #f8fafc;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+.zanin-doc-viewport.mode-forensic {
+  background: #0f172a;
+  color: #cbd5e1;
+}
+
+.zanin-doc-viewport.mode-sanitized {
+  background: #f0fdf4;
+  color: #14532d;
+  border-left: 4px solid #16a34a;
+}
+
+/* Destaques forenses */
+.forensic-hidden-badge {
+  display: inline-block;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+  text-transform: uppercase;
+}
+
+.forensic-hidden-box {
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid #ef4444;
+  border-left: 4px solid #ef4444;
+  color: #fca5a5;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin: 12px 0;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+
+/* 5. Forensic Diff */
+.zanin-diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+@media (max-width: 900px) {
+  .zanin-diff-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zanin-diff-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zanin-diff-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.zanin-diff-box {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-family: ui-monospace, monospace;
+  max-height: 160px;
+  overflow-y: auto;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.zanin-integrity-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 12px;
+}
+
+.zanin-integrity-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+}
+
+.zanin-integrity-pill.ok {
+  border-color: #86efac;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+/* 6. Findings Explicáveis */
+.zanin-findings-container {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zanin-finding-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zanin-finding-item.sev-CRITICAL {
+  border-left: 4px solid #dc2626;
+  background: #fff5f5;
+}
+
+.zanin-finding-item.sev-HIGH {
+  border-left: 4px solid #f97316;
+  background: #fffaf0;
+}
+
+.zanin-finding-item.sev-MEDIUM {
+  border-left: 4px solid #eab308;
+}
+
+.zanin-finding-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zanin-finding-badge {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.zanin-finding-rule {
+  font-size: 11px;
+  color: #64748b;
+  font-family: ui-monospace, monospace;
+}
+
+.zanin-finding-desc {
+  font-size: 13px;
+  color: #1e293b;
+  line-height: 1.45;
+}
+
+.zanin-finding-evidence {
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #334155;
+  word-break: break-all;
+}
+
+/* 7. Pipeline em Duas Barreiras & upstream_delta */
+.zanin-pipeline-box {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.zanin-nodes-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.zanin-flow-node {
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 130px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.zanin-flow-node.active-pass {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.zanin-flow-node.active-deny {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.zanin-flow-node.active-neutral {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.zanin-flow-node-title {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.zanin-flow-node-status {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.zanin-flow-arrow {
+  color: #94a3b8;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* Card Gigante do Upstream Delta */
+.zanin-upstream-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+@media (max-width: 800px) {
+  .zanin-upstream-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zanin-upstream-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.zanin-upstream-title {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #93c5fd;
+}
+
+.zanin-upstream-score {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.zanin-upstream-val {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  color: #4ade80;
+}
+
+.zanin-upstream-score.deny .zanin-upstream-val {
+  color: #4ade80; /* Zero é verde/seguro! */
+}
+
+.zanin-upstream-score.executed .zanin-upstream-val {
+  color: #facc15;
+}
+
+.zanin-upstream-sub {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* 8. Hashes & Cadeia de Custódia */
+.zanin-hashes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+}
+
+.zanin-hashes-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.zanin-hashes-table tr:last-child td {
+  border-bottom: none;
+}
+
+.zanin-hash-key {
+  color: #64748b;
+  font-weight: 600;
+  width: 260px;
+}
+
+.zanin-hash-val {
+  color: #0f172a;
+  word-break: break-all;
+}
+
+/* 9. Relatório Técnico Sintético & Verificador Offline */
+.zanin-report-card {
+  background: #ffffff;
+  border: 2px solid #0f172a;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.zanin-report-header {
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.zanin-report-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.zanin-report-disclaimer-tag {
+  display: inline-block;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.zanin-verifier-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 14px;
+}
+
+.zanin-verifier-table th {
+  background: #f8fafc;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #64748b;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.zanin-verifier-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.zanin-status-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.zanin-status-tag.pass {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.zanin-status-tag.unverified {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.zanin-status-tag.fail {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Modal "Por que foi bloqueado?" */
+.zanin-why-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.zanin-why-content {
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 9. Banners e Hints Visuais do HeraclitusDB */
+.zanin-heraclitus-hint-banner {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border: 1px solid #bfdbfe;
+  border-left: 6px solid #2563eb;
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zanin-hint-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.zanin-hint-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.zanin-hint-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 860px) {
+  .zanin-hint-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zanin-hint-col {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.zanin-hint-col strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.zanin-hint-col p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.zanin-hint-inline {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #1e293b;
+}
+
+.zanin-hint-inline strong {
+  color: #1d4ed8;
+}
